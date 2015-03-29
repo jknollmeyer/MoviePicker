@@ -66,7 +66,7 @@
         android:layout_alignParentStart="true"
         android:entries="@string/year_prompt"
         android:focusableInTouchMode="true"
-        android:layout_alignRight="@+id/YearInput"
-        android:layout_alignEnd="@+id/YearInput" />
+        android:layout_alignRight="@+id/DirectorInput"
+        android:layout_alignEnd="@+id/DirectorInput" />
 
 </RelativeLayout>
