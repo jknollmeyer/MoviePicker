@@ -4,8 +4,8 @@ using namespace std;
 
 class userinput{
     
-    vector<bool> genre (23);
-    /* Vector of 23 booleans (cuz memory efficient vs a vector of ints or strings) with true at an index if user selected corresponding genre below:
+    int genre;
+    /* Vector of 23 booleans (they are actually integers because they need to be added later I know that's ugly) with true at an index if user selected corresponding genre below:
      Short   1
      Drama   2
      Comedy  3
@@ -43,7 +43,7 @@ public:
     
     userinput(bool actors_input, bool directors_input, bool keywords_input,bool maxruntime_input);
     
-    vector<bool> getGenre();
+    int getGenre();
     
     bool getAnimated();
     
@@ -53,15 +53,13 @@ public:
     
     int getRuntime();
     
-    void setGenre(vector<bool> usergenre);
+    void setGenre(int usergenre);
     
     void setAnimated(bool want_animated);
     
     void setActors(vector<string> useractors);
-
+    
     void setDirectors(vector<string> userdirectors);
-
+    
     void setRuntime(int hours, int minutes);
 };
-
-
