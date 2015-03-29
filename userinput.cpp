@@ -4,9 +4,9 @@ using namespace std;
 
 
 userinput :: userinput(){ // null constructor
-    vector<bool> genre (23,false);
+    int genre;
     
-    bool animated;
+    bool animated = true;
     
     vector<string> actors (5);
     
@@ -18,7 +18,7 @@ userinput :: userinput(){ // null constructor
     //{genre,animated,actors,directors,runtime}
 }
 
-userinput :: void setGenre(vector<bool> usergenre){
+userinput :: void setGenre(int usergenre){
     genre = usergenre;
 }
 
@@ -31,7 +31,7 @@ userinput :: void setActors(vector<string> useractors){
 }
 
 userinput :: void setDirectors(vector<string> userdirectors){
-    directors = userdirectors
+    directors = userdirectors;
 }
 
 userinput :: void setRuntime(int hours, int minutes){
@@ -41,9 +41,9 @@ userinput :: void setRuntime(int hours, int minutes){
 
 /* what follows is constructors for all possible types of user inputs not that user MUST pick a genre and if they want animated I don't know if we'll need them */
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string> useractors, vector<string> userdirectors, int hours, int mins){
+userinput :: userinput(int usergenre, bool wantanimated, vector<string> useractors, vector<string> userdirectors, int hours, int mins){
     
-    vector<bool> genre (23,false);
+    int genre (23,false);
     
     bool animated;
     
@@ -51,7 +51,7 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
     
     vector<string> directors (5);
     
-    time runtime = runtime();
+    time runtime = time();
     
     vector<bool> whatinputs(5,true);
     
@@ -62,8 +62,8 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
     setRuntime(hours,mins);
 }
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string> useractors, vector<string> userdirectors){
-    vector<bool> genre (23,false);
+userinput :: userinput(int usergenre, bool wantanimated, vector<string> useractors, vector<string> userdirectors){
+    int genre (23,false);
     
     bool animated;
     
@@ -82,8 +82,8 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
     setDirectors(userdirectors);
 }
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string> useractors, int hours, int mins){
-    vector<bool> genre (23,false);
+userinput :: userinput(int usergenre, bool wantanimated, vector<string> useractors, int hours, int mins){
+    int genre (23,false);
     
     bool animated;
     
@@ -102,8 +102,8 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
     setRuntime(hours,mins);
 }
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string> userdirectors, int hours, int mins){
-    vector<bool> genre (23,false);
+userinput :: userinput(int usergenre, bool wantanimated, vector<string> userdirectors, int hours, int mins){
+    int genre (23,false);
     
     bool animated;
     
@@ -122,8 +122,8 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
     setRuntime(hours,mins);
 }
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string> useractors){
-    vector<bool> genre (23,false);
+userinput :: userinput(int usergenre, bool wantanimated, vector<string> useractors){
+    int genre (23,false);
     
     bool animated;
     
@@ -143,9 +143,9 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, vector<string>
 
 
 
-userinput :: userinput(vector<bool> usergenre, bool wantanimated, int hours, int mins){
+userinput :: userinput(int usergenre, bool wantanimated, int hours, int mins){
     
-    vector<bool> genre (23,false);
+    int genre (23,false);
     
     bool animated;
     
@@ -163,9 +163,9 @@ userinput :: userinput(vector<bool> usergenre, bool wantanimated, int hours, int
     setRuntime(hours,mins);
 }
 
-userinput :: userinput(vector<bool> usergenre, vector<string> userdirectors){
+userinput :: userinput(int usergenre, vector<string> userdirectors){
     
-    vector<bool> genre (23,false);
+    int genre (23,false);
     
     bool animated;
     
@@ -205,6 +205,3 @@ userinput :: vector<string> getDirectors(){
 userinput :: int getRuntime(){
     return runtime;
 }
-
-
-
