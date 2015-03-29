@@ -4,15 +4,16 @@
 #include <string>
 #include <vector>
 #include <array>
+#include <stdio>
 
 using namespace std;
 
 struct settings{ //set in setting window the returned movie(s) MUST obey these criteria
-    string max_rating;
+    vector <bool> max_rating (6); /*true maxrating and up ratings  {G,PG,PG-13,R,NR,NC-17} */
     int earliest_release;
-    bool exclude_watchedlist;
-    bool on_netflix;
-} settings;
+//    bool exclude_watchedlist; /* we'd have to include a watched list funtionality */
+//    bool on_netflix;  /* we'd have to include an on netflix funtionality */
+} settingspane;
 
 
 void initialfileopen(){
@@ -34,9 +35,6 @@ void initialfileopen(){
     
     //    ofstream directors;
     //    directors.open("directors.list");
-    
-    ofstream released;
-    released.open("release-dates.list");
 }
 
 
@@ -48,9 +46,14 @@ class time{     // a time class so user can just put in that they would like to 
     
 public:
     
-    runtime(){
+    time(){
         int hrs = 24;
         int minutes = 0;
+        int totalmins = 60*hrs + mins;
+    }
+    time(int hours, int mins){
+        int hrs = hours;
+        int minutes = mins;
         int totalmins = 60*hrs + mins;
     }
     
