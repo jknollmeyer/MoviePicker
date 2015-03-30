@@ -1,6 +1,50 @@
 <resources>
     <string name="app_name">MoviePicker</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Welcome to MoviePicker!</string>
     <string name="action_settings">Settings</string>
+    <string name="find_movie">Find Movie</string>
+
+    <string name="GenreInput">Enter a Genre</string>
+    <string name="ActorInput">Enter an Actor</string>
+    <string name="DirectorInput">Enter a Director</string>
+
+    <string name="year_prompt">Choose a Time Period</string>
+    <string-array name="year_array">
+        <item>1950s</item>
+        <item>1960s</item>
+        <item>1970s</item>
+        <item>1980s</item>
+        <item>1990s</item>
+        <item>2000s</item>
+        <item>2010s</item>
+    </string-array>
+
+    <string name="genre_prompt">Choose a Genre</string>
+    <string-array name="genre_array">
+        <item>Short</item>
+        <item>Drama</item>
+        <item>Comedy</item>
+        <item>Documentary</item>
+        <item>Adult</item>
+        <item>Action</item>
+        <item>Romance</item>
+        <item>Thriller</item>
+        <item>Animation</item>
+        <item>Family</item>
+        <item>Horror</item>
+        <item>Crime</item>
+        <item>Music</item>
+        <item>Adventure</item>
+        <item>Fantasy</item>
+        <item>Sci-Fi</item>
+        <item>Mystery</item>
+        <item>Biography</item>
+        <item>History</item>
+        <item>Sport</item>
+        <item>Musical</item>
+        <item>War</item>
+        <item>Western</item>
+    </string-array>
+
 </resources>

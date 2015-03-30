@@ -1,4 +1,4 @@
-package com.example.will.ec327app;
+package ec327.moviepicker;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
