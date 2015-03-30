@@ -1,6 +1,7 @@
 #include "MoviePicker.h"
 #include "userinput.h"
 #include <alogrithm>
+#include <cmath>
 
 using namespace std;
 
@@ -65,14 +66,14 @@ void applySettings(){
     int year;
     while (!working_movielist.eof()){
         getline(working_movielist, line);
-        sscanf(line, "MV: %s (%d)",title,&year)
+        sscanf(line, "MV: %s (%d)", title, &year)
         if (year < settings.earliest_release){
             working_movielist1 << title << " " << "(" << year << ")" <<endl;
         }
     }
     /* we now have movies valid according to seetings in the following format:
      Kill Bill: Vol. 1 2003 */
-     /* now we begin to get user inputs */
+    /* now we begin to get user inputs */
     
 }
 
@@ -84,26 +85,57 @@ void decisionMaker(){
     int countgenre_mode = 1;
     
     for (int i = 0; i < num_watchers; i++){
-            if (watchers[i].genre == number){
-                count++;
-            }
+        if (watchers[i].genre == number){
+            count++;
+        }
         
-            else{
-                if (count > countgenre_mode){
-                    countgenre_mode = count;
-                    genre_mode = number;
-                }
-                count = 1;
-                number = watchers[i].genre;
+        else{
+            if (count > countgenre_mode){
+                countgenre_mode = count;
+                genre_mode = number;
             }
+            count = 1;
+            number = watchers[i].genre;
+        }
     }
     
-    
-    while (!(genre.eof() && working_movielist1.eof())) {
-        getline(gere, line);
-// going to search the working movie list titles in the genre file to and delete them if their genre is not the genre_mode
+    string line2
+    while (!(genre.eof() || working_movielist1.eof())) {
+        getline(working_movielist, line);
+        // going to search the working movie list titles in the genre file to and delete them if their genre is not the genre_mode
+        getline(genre,line2);
+        
+        ofstream out("outfile.txt");
+        
+        while( getline(working_movielist1,line) ) { // this deletes movies of improper genre
+            if(line2.find(line) != npos){
+                out << line << endl;
+            }
+        }
+        
+        genre.close();
+        // delete the original file
+        remove("working_movielist.txt");
+        rename("outfile.txt","working_movielist.txt");
     }
+    
+    int line_counter = 0;
+    while ( ! working_movielist1.eof){
+        getline(working_movielist1,line);
+        line_counter++;
+    }
+    
+    int randolinepick = (rand() % line_counter) + 1;
+    
+    string mytitle;
+    string myyear;
+    for (int i = 0; i < randolinepick; i++){
+        getline(working_movielist1,line);
+    }
+    
+    sscanf(line, "%s (%d)", mytitle, &myyear)
+    
+    tonights_movie.title = mytitle;
+    tonights_movie.year = myyear;
 
-    
-    
 }
