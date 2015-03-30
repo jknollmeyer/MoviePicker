@@ -15,6 +15,12 @@ struct settings{ //set in setting window the returned movie(s) MUST obey these c
 //    bool on_netflix;  /* we'd have to include an on netflix funtionality */
 } settingspane;
 
+struct movie{
+    string title;
+    int year;
+    string genre;
+} tonights_movie;
+
 
 void initialfileopen(){
     
