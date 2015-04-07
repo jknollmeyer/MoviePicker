@@ -46,7 +46,7 @@ void applySettings(){
             getline(mpaa, line);
             if (settings.max_rating[i]){
                 if (line.find(ratings[i]) != string::npos) {
-                    working_movielist << mpaa.getline(curLine - 1) <<endl;
+                    working_movielist << mphttps://github.com/jknollmeyer/MoviePicker.gitaa.getline(curLine - 1) <<endl;
                 }
             }
         }
@@ -77,7 +77,7 @@ void applySettings(){
     
 }
 
-void decisionMaker(watchers[]){
+void decisionMaker(userinput watchers[]){
     // the mode of the genre inputs is the genre we want
     int number = watchers[0].genre;
     int genre_mode = number;
