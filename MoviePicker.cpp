@@ -164,12 +164,9 @@ void decisionMaker(watchers[]){
             genre_mode_string = "Musical";
             break;
         case 22:
-            genre_mode_string = "Musical";
-            break;
-        case 23:
             genre_mode_string =  "War";
             break;
-        case 24:
+        case 23:
             genre_mode_string = "Western";
             break;
     
