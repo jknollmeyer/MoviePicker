@@ -26,7 +26,7 @@ int main(){
         watchers[i] = userinput(); /* all inputs given by this user uses overloaded constructor in userinput.h*/
         
     }
-    decisionMaker();
+    decisionMaker(userinput watchers[]);
     
 }
 
@@ -77,7 +77,7 @@ void applySettings(){
     
 }
 
-void decisionMaker(){
+void decisionMaker(watchers[]){
     // the mode of the genre inputs is the genre we want
     int number = watchers[0].genre;
     int genre_mode = number;
@@ -98,8 +98,97 @@ void decisionMaker(){
             number = watchers[i].genre;
         }
     }
+    string genre_mode_string;
+    switch (genre_mode){
+        case 1:
+            genre_mode_string = "Short";
+            break;
+        case 2:
+            genre_mode_string = "Drama";
+            break;
+        case 3:
+            genre_mode_string = "Comedy";
+            break;
+        case 4:
+            genre_mode_string = "Documentary";
+            break;
+        case 5:
+            genre_mode_string = "Adult";
+            break;
+        case 6:
+            genre_mode_string = "Action";
+            break;
+        case 7:
+            genre_mode_string = "Romance";
+            break;
+        case 8:
+            genre_mode_string = "Thriller";
+            break;
+        case 9:
+            genre_mode_string = "Animation";
+            break;
+        case 10:
+            genre_mode_string = "Family";
+            break;
+        case 11:
+            genre_mode_string = "Horror";
+            break;
+        case 12:
+            genre_mode_string = "Crime";
+            break;
+        case 13:
+            genre_mode_string = "Music";
+            break;
+        case 14:
+            genre_mode_string = "Adventure";
+            break;
+        case 15:
+            genre_mode_string = "Fantasy";
+            break;
+        case 16:
+            genre_mode_string = "Sci-Fi";
+            break;
+        case 17:
+            genre_mode_string = "Mystery";
+            break;
+        case 18:
+            genre_mode_string = "Biography";
+            break;
+        case 19:
+            genre_mode_string = "Histroy";
+            break;
+        case 20:
+            genre_mode_string = "Sport";
+            break;
+        case 21:
+            genre_mode_string = "Musical";
+            break;
+        case 22:
+            genre_mode_string = "Musical";
+            break;
+        case 23:
+            genre_mode_string =  "War";
+            break;
+        case 24:
+            genre_mode_string = "Western";
+            break;
+    
     
     string line2
+    
+    ofstream out("out.txt");
+    
+    while( getline(genre,line) ) { // this deletes movies of improper genre
+        if(line2.find(genre_mode_string) != npos){
+            out << line << endl;
+        }
+    }
+    
+    // delete the original file
+    remove("genre.list");
+    rename("out.txt","genre.list");
+    
+    
     while (!(genre.eof() || working_movielist1.eof())) {
         getline(working_movielist, line);
         // going to search the working movie list titles in the genre file to and delete them if their genre is not the genre_mode
@@ -107,25 +196,26 @@ void decisionMaker(){
         
         ofstream out("outfile.txt");
         
-        while( getline(working_movielist1,line) ) { // this deletes movies of improper genre
+        while( working_movielist1.eof() ) { // this deletes movies of improper genre
+            getline(working_movielist1,line)
             if(line2.find(line) != npos){
                 out << line << endl;
             }
         }
         
         genre.close();
-        // delete the original file
-        remove("working_movielist.txt");
+        // close the original file
+        remove("working_movielist.txt"); // edits working movielist
         rename("outfile.txt","working_movielist.txt");
     }
     
     int line_counter = 0;
-    while ( ! working_movielist1.eof){
+    while ( ! working_movielist1.eof()){    // this loop counts # of lines in a file
         getline(working_movielist1,line);
         line_counter++;
     }
     
-    int randolinepick = (rand() % line_counter) + 1;
+    int randolinepick = (rand() % line_counter) + 1; // picks a random line in the working movielist file to select movie
     
     string mytitle;
     string myyear;
