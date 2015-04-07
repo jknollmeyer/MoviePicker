@@ -1,0 +1,6 @@
+3/30
+John on branch John
+------------------
+-Moved Caroline and Will's java class files to the ec327.moviepicker directory so that they can be compiler into the app
+-Removed stray XML tages from MainActivity.java
+-Moved activity xml file sto res/layout

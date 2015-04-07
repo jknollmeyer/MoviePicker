@@ -45,25 +45,3 @@ public class MainActivity extends ActionBarActivity {
     }
 }
 
-        <item>Adult</item>
-        <item>Action</item>
-        <item>Romance</item>
-        <item>Thriller</item>
-        <item>Animation</item>
-        <item>Family</item>
-        <item>Horror</item>
-        <item>Crime</item>
-        <item>Music</item>
-        <item>Adventure</item>
-        <item>Fantasy</item>
-        <item>Sci-Fi</item>
-        <item>Mystery</item>
-        <item>Biography</item>
-        <item>History</item>
-        <item>Sport</item>
-        <item>Musical</item>
-        <item>War</item>
-        <item>Western</item>
-    </string-array>
-
-</resources>

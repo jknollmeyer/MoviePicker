@@ -42,5 +42,4 @@ public class Main extends ActionBarActivity implements View.OnClickListener{
         choco_display.setText("Chocolate: "+String.valueOf(choco.getSelectedItem()));*/
     }
 
-    }
 }
