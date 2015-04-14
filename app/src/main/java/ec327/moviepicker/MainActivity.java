@@ -1,23 +1,44 @@
 package ec327.moviepicker;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
     Button FindMovieBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
+        final EditText GenreInput = (EditText)findViewById(R.id.GenreInput);
+        final EditText ActorInput = (EditText)findViewById(R.id.ActorInput);
+        final EditText DirectorInput = (EditText)findViewById(R.id.DirectorInput);
+        FindMovieBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                System.out.println("Button Clicked");
+                System.out.println(GenreInput.getText());
+                Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
+                outScreen.putExtra("genre", GenreInput.getText().toString());
+                outScreen.putExtra("actor", ActorInput.getText().toString());
+                outScreen.putExtra("director",DirectorInput.getText().toString());
+                startActivity(outScreen);
+
+            }
+        });
+
+
+
+
 
     }
 
@@ -43,5 +64,6 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
 
+
+}

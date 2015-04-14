@@ -3,7 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="find_movie">Find Movie</string>
+    <string name="findMovie">Find Movie</string>
 
     <string name="GenreInput">Enter a Genre</string>
     <string name="ActorInput">Enter an Actor</string>

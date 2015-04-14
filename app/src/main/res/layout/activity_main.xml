@@ -14,7 +14,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  @string/find_movie"
+        android:text="@string/findMovie"
         android:id="@+id/btnFindMovie"
         android:layout_marginBottom="46dp"
         android:layout_alignParentBottom="true"
