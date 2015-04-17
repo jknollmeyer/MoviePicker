@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/output_activity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#E32F21">
 
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
+        android:textColor="#E4DED0"
         android:layout_marginTop="100dp"
         android:id="@+id/GenreOutput"
         android:layout_gravity="center_horizontal" />
@@ -20,6 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
+        android:textColor="#E4DED0"
         android:id="@+id/ActorOutput"
         android:layout_gravity="center_horizontal" />
 
@@ -28,6 +31,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
+        android:textColor="#E4DED0"
         android:id="@+id/DirectorOutput"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
