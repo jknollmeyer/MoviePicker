@@ -26,7 +26,7 @@ public class HomeScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "PoplarStd.otf");
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
         TextView myTextview = (TextView)findViewById(R.id.textview1);
         myTextview.setTypeface(myTypeface);
     }
