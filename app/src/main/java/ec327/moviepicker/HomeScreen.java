@@ -1,10 +1,15 @@
 package ec327.moviepicker;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -15,25 +20,32 @@ import android.widget.TextView;
 
 public class HomeScreen extends ActionBarActivity {
 
+    Spinner SetWatchersSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
-        TextView myTextview = (TextView)findViewById(R.id.textview1);
-        myTextview.setTypeface(myTypeface);
+        SetWatchersSpinner = (Spinner) findViewById(R.id.spinnerHome);
+        final TextView numWatchers = (TextView)findViewById(R.id.textview1);
+        SetWatchersSpinner.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                System.out.println("Button Clicked");
+                System.out.println(numWatchers.getText());
+                Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
+                startActivity(outScreen);
+
+            }
+        });
+
     }
-    /*spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-            // your code here
-        }
-    };*/
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
