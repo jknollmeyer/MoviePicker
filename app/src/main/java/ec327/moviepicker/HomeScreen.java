@@ -10,14 +10,7 @@ import android.widget.TextView;
 /**
  * Created by Caroline on 4/17/2015.
  */
-package com.example.caroline.moviepicker;
 
-import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
 
 
 public class HomeScreen extends ActionBarActivity {
