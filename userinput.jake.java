@@ -62,9 +62,9 @@ public class userinput{
      }
 
      public void setAnimated(bool want_animated){ // should be called when user says if they want an animated film
-     	animated = want_animated
+     	animated = want_animated;
      }
-
+/*
      public void setActors(){
      	boolean next_button = 0;
      	string userTypedActor; // each time a user types an actor name should be written to this
@@ -80,7 +80,7 @@ public class userinput{
      		directors.add(userTypedDirector);
      	}
      }
-
+*/
      public void setRuntime(int hours; int minutes){
      	runtime.sethrs(hours);
      	runtime.setmins(minutes);
