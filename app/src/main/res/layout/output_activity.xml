@@ -10,8 +10,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:layout_marginTop="100dp"
+        android:text="Movie Output"
+        android:id="@+id/MovieOutput"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Genre Output"
         android:id="@+id/GenreOutput"
         android:layout_gravity="center_horizontal" />
 
@@ -19,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Actor Output"
         android:id="@+id/ActorOutput"
         android:layout_gravity="center_horizontal" />
 
@@ -27,7 +35,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Director Output"
         android:id="@+id/DirectorOutput"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Over"
+        android:id="@+id/ReturnButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp" />
 </LinearLayout>
