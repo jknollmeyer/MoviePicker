@@ -7,9 +7,10 @@ public class MoviePicker{
 	public class settings{
 		//set in setting window the returned movie(s) MUST obey these criteria
 
-		bool[] max_rating; /*true maxrating and up ratings  {G,PG,PG-13,R,NR,NC-17} */
-		max_rating = new int[6];
+		boolean[] max_rating; /*true maxrating and up ratings  {G,PG,PG-13,R,NR,NC-17} */
+		max_rating = new boolean[6];
 		int earliest_release;
+		time max_runtime;
 //    bool exclude_watchedlist; /* we'd have to include a watched list funtionality */
 //    bool on_netflix;  /* we'd have to include an on netflix funtionality */
 	} settingspane;
@@ -17,6 +18,7 @@ public class MoviePicker{
 	public class movie{
 		string title;
 		int year
+		bool rating[6]; // true for corresponding rating
 		string genre;
 		Bufferedimage poster; // to set poster = ImageIO.read(new File("my.png"));
 	} tonights_movie;
