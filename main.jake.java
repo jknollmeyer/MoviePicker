@@ -1,9 +1,12 @@
 import "MoviePicker.java";
 import "userinput.java";
 import java.util.Scanner;
+import java.lang.Object*;
 
+
+/* setting window input */ 
 void applySettings();
-void decisionMaker();
+movie decisionMaker();
 
 int main(){
 	MoviePicker.initialfileopen();
@@ -14,6 +17,8 @@ int main(){
         watchers.add(userinput()); /* all inputs given by this user uses overloaded constructor in userinput.h*/
         
     }
+
+    applySettings();
     decisionMaker(userinput watchers[]);
 }
 
@@ -60,6 +65,7 @@ void applySettings(){
     int numbers_idx = 0;
     Scanner buffer_scan = new Scanner();
     int year;
+
     /* this loop gets rid of MV: crap */
     while (movielist.ready()){
     	word = scan.next();
@@ -70,5 +76,8 @@ void applySettings(){
     		edited_movielist.print(buffer);
     	}
     }
-/*NOTE THIS IS A WORK IN PROGRESS */
+
+    InputStream new_movielist
+
+
 }
