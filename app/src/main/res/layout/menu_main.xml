@@ -17,34 +17,33 @@
         android:layout_height="wrap_content"
         android:id="@+id/textview1"
         android:textColor="#E4DED0"
-        android:textSize="22dp" />
+        android:layout_alignParentTop="true"
+        android:textSize="22sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TextView android:text="How many people are watching?" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:text="How many people are watching?"
         android:textColor="#E4DED0"
         android:textSize="40sp"
-        android:singleLine="false"
-        android:textAlignment="center"
+        android:singleLine="false"/>
+        <!--android:textAlignment="center"
         android:layout_below="@+id/textview1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="95dp" />
+        android:layout_marginTop="95dp"-->
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerHome"
         android:layout_marginTop="100dp"
         android:background="#E4DED0"
         android:entries="@array/spinnerNums"
-        android:focusable="false"
-        android:layout_below="@+id/editText"
+        android:focusable="false"/>
+        <!--android:layout_below="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignEnd="@+id/editText"-->
 
 </Layout>
