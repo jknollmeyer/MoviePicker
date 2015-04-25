@@ -35,8 +35,7 @@
         android:hint="@string/GenreInput"
         android:textColor="#E4DED0"
         android:layout_alignRight="@+id/btnFindMovie"
-        android:layout_alignEnd="@+id/btnFindMovie"
-        android:text="@string/GenreInput" />
+        android:layout_alignEnd="@+id/btnFindMovie" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,8 +47,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/GenreInput"
         android:layout_alignEnd="@+id/GenreInput"
-        android:hint="@string/ActorInput"
-        android:text="@string/ActorInput" />
+        android:hint="@string/ActorInput" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -61,8 +59,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/ActorInput"
         android:layout_alignEnd="@+id/ActorInput"
-        android:hint="@string/DirectorInput"
-        android:text="@string/DirectorInput" />
+        android:hint="@string/DirectorInput" />
 
     <Spinner
         android:layout_width="wrap_content"
