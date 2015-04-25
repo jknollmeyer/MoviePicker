@@ -3,19 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/output_activity"
-    android:orientation="vertical"
-    android:background="#E32F21">
+    android:orientation="vertical">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-<<<<<<< HEAD
-        android:text="Large Text"
-        android:textColor="#E4DED0"
-        android:layout_marginTop="100dp"
-=======
         android:text="Movie Output"
         android:id="@+id/MovieOutput"
         android:layout_gravity="center_horizontal"
@@ -26,7 +20,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Genre Output"
->>>>>>> origin/master
         android:id="@+id/GenreOutput"
         android:layout_gravity="center_horizontal" />
 
@@ -34,12 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-<<<<<<< HEAD
-        android:text="Large Text"
-        android:textColor="#E4DED0"
-=======
         android:text="Actor Output"
->>>>>>> origin/master
         android:id="@+id/ActorOutput"
         android:layout_gravity="center_horizontal" />
 
@@ -47,13 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-<<<<<<< HEAD
-        android:text="Large Text"
-        android:textColor="#E4DED0"
-        android:id="@+id/DirectorOutput"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
-=======
         android:text="Director Output"
         android:id="@+id/DirectorOutput"
         android:layout_gravity="center_horizontal" />
@@ -66,4 +47,3 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp" />
 </LinearLayout>
->>>>>>> origin/master
