@@ -46,11 +46,17 @@ public class OutputActivity extends ActionBarActivity {
             for (int x=0; x<783; x++) {
                 String[] parts = movieReader.readLine().split("\\\t");
                 String[] genres = parts[3].split(" ");
+                String year = parts[2];
+                String myyear = year.substring(1,4);
+                int yearint = Integer.parseInt(myyear);
+                int want_year = Integer.parseInt(i.getStringExtra("year"));
                 System.out.println(parts[parts.length-1]);
                 for(int y = 0; y < genres.length; y++) {
                     if (genres[y].equals(i.getStringExtra("genre"))) {
-                        currentAns[0] = genres[y];
-                        currentAns[1] = parts[1];
+                        if (want_year == yearint) {
+                            currentAns[0] = genres[y];
+                            currentAns[1] = parts[1];
+                        }
                     }
                 }
             }
