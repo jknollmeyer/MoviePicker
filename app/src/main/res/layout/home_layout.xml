@@ -26,7 +26,7 @@
     <Spinner
         android:layout_width="151dp"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/PeopleSpinner"
         android:background="#E4DED0"
         android:entries="@array/spinnerNums"
         android:focusable="false"

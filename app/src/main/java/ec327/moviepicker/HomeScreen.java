@@ -1,5 +1,6 @@
 package ec327.moviepicker;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -19,35 +21,37 @@ import android.widget.TextView;
 public class HomeScreen extends ActionBarActivity {
 
     Button startBtn;
+    Spinner numSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_layout);
 
-        startBtn = (Button)findViewById(R.id.StartButton);
+        startBtn = (Button) findViewById(R.id.StartButton);
+        numSpinner = (Spinner) findViewById(R.id.PeopleSpinner);
+        startBtn.setOnClickListener(new View.OnClickListener() {
 
-        startBtn.setOnClickListener(new View.OnClickListener(){)
-            public void onClick(View v){
-                Intent to 
+            public void onClick(View v) {
+                Intent toHome = new Intent(getApplicationContext(), MainActivity.class);
+                toHome.putExtra("num", numSpinner.getSelectedItem().toString());
+                startActivity(toHome);
             }
 
 
+        });
         //Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
-        TextView myTextview = (TextView)findViewById(R.id.textview1);
+        TextView myTextview = (TextView) findViewById(R.id.textview1);
         //myTextview.setTypeface(myTypeface);
-
-
     }
 
-
-    //@Override
+                //@Override
 /*    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home_screen, menu);
         return true;
     }*/
 
-    @Override
+        @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
