@@ -39,19 +39,19 @@ public class HomeScreen extends ActionBarActivity {
 
 
         });
-        //Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
         TextView myTextview = (TextView) findViewById(R.id.textview1);
-        //myTextview.setTypeface(myTypeface);
+        myTextview.setTypeface(myTypeface);
     }
 
-                //@Override
+    //@Override
 /*    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home_screen, menu);
         return true;
     }*/
 
-        @Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

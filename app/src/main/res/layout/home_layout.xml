@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/textview1"
         android:textColor="#E4DED0"
-        android:textSize="22sp" />
+        android:gravity="center"
+        android:textSize="50sp"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
         android:textColor="#181619"
         android:entries="@array/spinnerNums"
         android:focusable="false"
+        android:gravity="center"
         android:layout_gravity="center"/>
 
     <Button
@@ -42,7 +45,7 @@
         android:layout_marginTop="200dp"
         android:background="#E4DED0"
         android:textColor="#181619"
-        android:text="Go to selection"
+        android:text="Next"
         android:id="@+id/StartButton"
         android:layout_gravity="center_horizontal" />
 

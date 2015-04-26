@@ -1,6 +1,7 @@
 package ec327.moviepicker;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -33,6 +35,10 @@ public class MainActivity extends ActionBarActivity {
         configMovieBtn();
         configGenreSpinner();
         configDecadeSpinner();
+
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
+        TextView myTextview = (TextView) findViewById(R.id.textView);
+        myTextview.setTypeface(myTypeface);
     }
     //Configure the "find movie" button along with the text boxes
     public void configMovieBtn(){
