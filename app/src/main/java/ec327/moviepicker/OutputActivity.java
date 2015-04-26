@@ -44,20 +44,24 @@ public class OutputActivity extends ActionBarActivity {
                 getResources().getIdentifier("raw/testfile","raw",getPackageName()));
         BufferedReader movieReader = new BufferedReader(new InputStreamReader(ins));
         try{
-            //Current Ans 0 = genre CurrentAns 1 = movie ouput
+            //GET [5]DECADE,GET [5]GENRE                                                                                                ---
+            //SORT                                                                                                                      ---
+            //Current Ans 0 = genre,CurrentAns 1 = movie output
             String[] currentAns = {"",""};
+            //FOR EACH GENRE{genre(ddd) = [i]                                                                                                           ---
+            //FOR EACH YEAR{want_year(DDD) = [j]                                                                                                            ---
             for (int x=0; x<783; x++) {
                 String[] parts = movieReader.readLine().split("\\\t");
                 String[] genres = parts[3].split(" ");
                 String year = parts[2];
                 String myyear = year.substring(1,5);
                 int yearint = Integer.parseInt(myyear);
-                String decade = i.getStringExtra("year").substring(0,4);
-                int want_year = Integer.parseInt(decade);
+                String decade = i.getStringExtra("year").substring(0,4);                                                                //DDD
+                int want_year = Integer.parseInt(decade);                                                                               //DDD
                 System.out.println(parts[parts.length-1]);
                 for(int y = 0; y < genres.length; y++) {
 
-                    if (genres[y].equals(i.getStringExtra("genre"))) {
+                    if (genres[y].equals(i.getStringExtra("genre"))) {                                                                  //ddd
                         if (want_year < yearint && yearint < want_year+ 9) {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
