@@ -67,32 +67,10 @@ public class OutputActivity extends ActionBarActivity {
         }catch(Exception e){
             System.out.println("InputStream Exception");
         }
-        /*
-        get modal genre "mg"
-        get movies of mg
-        pick a movie
-        return the title&year
-         */
-        //(EditText)findViewById(R.id.GenreInput)
-        //getText().toString()
-        //GenreOutput.setText(i.getStringExtra("genre"));
-
     }
 }
 /*
-                getResources().getIdentifier("raw/testfile","raw",getPackageName()));
-            String[] currentAns = {"",""};
-            for (int ii=0;ii<5;ii++) {
-                String[] parts = reader.readLine().split("\\\t");
-//                MovieOutput.setText(parts[0]);
-//                GenreOutput.setText(parts[parts.length - 1]);
-                String[] arr = getResources().getStringArray(R.array.genre_array);
-//                ActorOutput.setText(arr[0]);
-                if (parts[parts.length-1].equals("Horror")) {
-                    currentAns[0] = parts[parts.length-1];
-                    currentAns[1] = parts[0];
-                }
-            }
-            MovieOutput.setText(currentAns[1]);
-            GenreOutput.setText(currentAns[0]);
+get [5]decade, [5]genre
+sort decade by diff-avg(1950 1960 1970)->(1960 1950 1970),sort genre by modal (horror comedy comedy action) -> (comedy horror action)
+go through in order, tops n^2, probably average n
  */
