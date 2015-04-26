@@ -27,51 +27,31 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/GenreInput"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp"
-        android:hint="@string/GenreInput"
-        android:textColor="#E4DED0"
-        android:layout_alignRight="@+id/btnFindMovie"
-        android:layout_alignEnd="@+id/btnFindMovie" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/ActorInput"
         android:textColor="#E4DED0"
-        android:layout_below="@+id/GenreInput"
+        android:hint="@string/ActorInput"
+        android:layout_below="@+id/GenreSpinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/GenreInput"
-        android:layout_alignEnd="@+id/GenreInput"
-        android:hint="@string/ActorInput" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/DirectorInput"
         android:textColor="#E4DED0"
+        android:hint="@string/DirectorInput"
         android:layout_below="@+id/ActorInput"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/ActorInput"
-        android:layout_alignEnd="@+id/ActorInput"
-        android:hint="@string/DirectorInput" />
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:textColor="#E4DED0"
-        android:layout_below="@+id/DirectorInput"
+        android:id="@+id/GenreSpinner"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:entries="@string/year_prompt"
-        android:focusableInTouchMode="true"
-        android:layout_alignRight="@+id/DirectorInput"
-        android:layout_alignEnd="@+id/DirectorInput" />
+        android:prompt="@string/GenreInput"
+        android:nestedScrollingEnabled="true" />
 
 </RelativeLayout>

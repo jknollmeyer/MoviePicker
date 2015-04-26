@@ -6,41 +6,65 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    //Declare the objects for the main acitivity
     Button FindMovieBtn;
+    Spinner genreSpinner;
+    EditText ActorInput, DirectorInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        configMovieBtn();
+        configGenreSpinner();
+    }
+    //Configure the "find movie" button along with the text boxes
+    public void configMovieBtn(){
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
-        final EditText GenreInput = (EditText)findViewById(R.id.GenreInput);
-        final EditText ActorInput = (EditText)findViewById(R.id.ActorInput);
-        final EditText DirectorInput = (EditText)findViewById(R.id.DirectorInput);
+        ActorInput = (EditText)findViewById(R.id.ActorInput);
+        DirectorInput = (EditText)findViewById(R.id.DirectorInput);
         FindMovieBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
                 System.out.println("Button Clicked");
-                System.out.println(GenreInput.getText());
                 Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
-                outScreen.putExtra("genre", GenreInput.getText().toString());
+                outScreen.putExtra("genre", genreSpinner.getSelectedItem().toString());
                 outScreen.putExtra("actor", ActorInput.getText().toString());
                 outScreen.putExtra("director",DirectorInput.getText().toString());
                 startActivity(outScreen);
 
             }
         });
-
-
-
+    }
+    //Configure the spinner that holds all the different possible genres
+    public void configGenreSpinner(){
+        String[] genres = getResources().getStringArray(R.array.genre_array);
+        List<String> list = new ArrayList<String>();
+        for(int i = 0; i < genres.length; i++) {
+            list.add(i, genres[i]);
+        }
+        genreSpinner = (Spinner)findViewById(R.id.GenreSpinner);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genreSpinner.setAdapter(dataAdapter);
 
 
 
     }
+
 
 
     @Override
