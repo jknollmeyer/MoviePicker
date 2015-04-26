@@ -34,8 +34,7 @@ public class OutputActivity extends ActionBarActivity {
 
         final TextView MovieOutput = (TextView)findViewById(R.id.MovieOutput);
         final TextView GenreOutput = (TextView)findViewById(R.id.GenreOutput);
-        final TextView ActorOutput = (TextView)findViewById(R.id.ActorOutput);
-        final TextView DirectorOutput = (TextView)findViewById(R.id.DirectorOutput);
+
 
         //Set up BufferReader using InputStream from text file at raw/testfile.txt
         InputStream ins = getResources().openRawResource(
@@ -44,13 +43,13 @@ public class OutputActivity extends ActionBarActivity {
         try{
             //Current Ans 0 = genre CurrentAns 1 = movie ouput
             String[] currentAns = {"",""};
-            for (int ii=0;ii<5;ii++) {
+            for (int x=0; x<783; x++) {
                 String[] parts = movieReader.readLine().split("\\\t");
                 String[] genres = parts[3].split(" ");
                 System.out.println(parts[parts.length-1]);
-                for(int j = 0; j < genres.length; j++) {
-                    if (genres[j].equals(i.getStringExtra("genre"))) {
-                        currentAns[0] = genres[j];
+                for(int y = 0; y < genres.length; y++) {
+                    if (genres[y].equals(i.getStringExtra("genre"))) {
+                        currentAns[0] = genres[y];
                         currentAns[1] = parts[1];
                     }
                 }

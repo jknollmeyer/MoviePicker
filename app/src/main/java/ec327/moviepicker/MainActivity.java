@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
     //Declare the objects for the main acitivity
-    Button FindMovieBtn;
+    Button FindMovieBtn, HomeBtn;
     Spinner genreSpinner;
     EditText ActorInput, DirectorInput;
 
@@ -35,6 +35,14 @@ public class MainActivity extends ActionBarActivity {
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
         ActorInput = (EditText)findViewById(R.id.ActorInput);
         DirectorInput = (EditText)findViewById(R.id.DirectorInput);
+
+        HomeBtn = (Button)findViewById(R.id.HomeButton);
+        HomeBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent home = new Intent(getApplicationContext(), HomeScreen.class);
+                startActivity(home);
+            }
+        });
         FindMovieBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 

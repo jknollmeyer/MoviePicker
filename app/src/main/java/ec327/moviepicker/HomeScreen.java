@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -15,27 +18,34 @@ import android.widget.TextView;
 
 public class HomeScreen extends ActionBarActivity {
 
+    Button startBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_main);
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
-        TextView myTextview = (TextView)findViewById(R.id.textview1);
-        myTextview.setTypeface(myTypeface);
-    }
-    /*spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-            // your code here
-        }
-    };*/
+        setContentView(R.layout.home_layout);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+        startBtn = (Button)findViewById(R.id.StartButton);
+
+        startBtn.setOnClickListener(new View.OnClickListener(){)
+            public void onClick(View v){
+                Intent to 
+            }
+
+
+        //Typeface myTypeface = Typeface.createFromAsset(getAssets(), "lex.otf");
+        TextView myTextview = (TextView)findViewById(R.id.textview1);
+        //myTextview.setTypeface(myTypeface);
+
+
+    }
+
+
+    //@Override
+/*    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home_screen, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

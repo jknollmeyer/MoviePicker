@@ -22,6 +22,7 @@
 
     <string name="genre_prompt">Choose a Genre</string>
     <string-array name="genre_array">
+        <item>Select a genre</item>
         <item>Short</item>
         <item>Drama</item>
         <item>Comedy</item>
@@ -46,4 +47,6 @@
         <item>War</item>
         <item>Western</item>
     </string-array>
+    <string name="people_prompt">How many people are watching?</string>
+
 </resources>
