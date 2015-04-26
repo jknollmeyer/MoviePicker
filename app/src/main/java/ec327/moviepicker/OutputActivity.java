@@ -1,6 +1,7 @@
 package ec327.moviepicker;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -30,6 +31,9 @@ public class OutputActivity extends ActionBarActivity {
                 startActivity(returnScreen);
             }
         });
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
+        TextView myTextview = (TextView) findViewById(R.id.textView2);
+        myTextview.setTypeface(myTypeface);
 
 
         final TextView MovieOutput = (TextView)findViewById(R.id.MovieOutput);
