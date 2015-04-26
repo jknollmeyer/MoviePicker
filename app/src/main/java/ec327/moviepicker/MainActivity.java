@@ -36,7 +36,8 @@ public class MainActivity extends ActionBarActivity {
     }
     //Configure the "find movie" button along with the text boxes
     public void configMovieBtn(){
-
+        final String[] userGenres = new String[maxPresses];
+        final String[] userDecades = new String[maxPresses];
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
 
         HomeBtn = (Button)findViewById(R.id.HomeButton);
@@ -48,12 +49,14 @@ public class MainActivity extends ActionBarActivity {
         });
         FindMovieBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+            userGenres[presses] = genreSpinner.getSelectedItem().toString();
+            userDecades[presses] = decadeSpinner.getSelectedItem().toString();
             presses += 1;
             if(presses == maxPresses){
                 System.out.println("Button Clicked");
                 Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
-                outScreen.putExtra("genre", genreSpinner.getSelectedItem().toString());
-                outScreen.putExtra("year", decadeSpinner.getSelectedItem().toString());
+                outScreen.putExtra("genre", userGenres);
+                outScreen.putExtra("year", userDecades);
                 startActivity(outScreen);
 
             }

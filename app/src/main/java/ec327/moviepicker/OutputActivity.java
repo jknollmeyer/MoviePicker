@@ -39,25 +39,64 @@ public class OutputActivity extends ActionBarActivity {
         InputStream ins = getResources().openRawResource(
                 getResources().getIdentifier("raw/testfile","raw",getPackageName()));
         BufferedReader movieReader = new BufferedReader(new InputStreamReader(ins));
+
+        String[] decade = i.getStringArrayExtra("year");//.substring(0,4);
+        String[] genre = i.getStringArrayExtra("genre");
+        String[] decade_array = getResources().getStringArray(R.array.year_array);
+        String[] genre_array = getResources().getStringArray(R.array.genre_array);
+        int[] decadeCount = new int[decade_array.length];
+        int[] genreCount = new int[genre_array.length];
+        String myGenre, myDecade;
+        int maxGenre =0, maxDecade=0;
+        //Loop to zero-initialize the count arrays
+        for(int x = 0; x < decadeCount.length; x++){
+            decadeCount[x] = genreCount[x] = 0;
+        }
+        //Loop to get the counts for the decades
+        for(int x = 0; x < decade.length; x++) {
+            for (int y = 0; y < decade_array.length; y++) {
+                if (decade[x].equals(decade_array[y])) {
+                    decadeCount[y] += 1;
+                    break;
+                }
+            }
+        }
+        //Loop to get the counts for the genres
+        for(int x = 0; x < genre.length; x++) {
+            for (int y = 0; y < genre_array.length; y++) {
+                if (genre[x].equals(genre_array[y])) {
+                    genreCount[y] += 1;
+                    break;
+                }
+            }
+        }
+        //Loop to get decade with the most votes
+        for(int x = 0; x < decadeCount.length; x++){
+            if(decadeCount[maxDecade] < decadeCount[x]){
+                maxDecade = x;
+            }
+        }
+        for(int x =0; x < genreCount.length; x++){
+            if(genreCount[maxGenre] < genreCount[x]){
+                maxGenre = x;
+            }
+        }
+        myGenre = genre_array[maxGenre];
+        myDecade = decade_array[maxDecade];
         try{
-            //GET [5]DECADE,GET [5]GENRE                                                                                                ---
-            //SORT                                                                                                                      ---
-            //Current Ans 0 = genre,CurrentAns 1 = movie output
+
             String[] currentAns = {"",""};
-            //FOR EACH GENRE{genre(ddd) = [i]                                                                                                           ---
-            //FOR EACH YEAR{want_year(DDD) = [j]                                                                                                            ---
-            for (int x=0; x<783; x++) {
+            for(int x=0; x<783; x++) {
                 String[] parts = movieReader.readLine().split("\\\t");
                 String[] genres = parts[3].split(" ");
                 String year = parts[2];
                 String myyear = year.substring(1,5);
-                int yearint = Integer.parseInt(myyear);
-                String decade = i.getStringExtra("year").substring(0,4);                                                                //DDD
-                int want_year = Integer.parseInt(decade);                                                                               //DDD
+                int yearint = Integer.parseInt(myyear);                                                               //DDD
+                int want_year = Integer.parseInt(myDecade.substring(0,4));                                                                               //DDD
                 System.out.println(parts[parts.length-1]);
                 for(int y = 0; y < genres.length; y++) {
 
-                    if (genres[y].equals(i.getStringExtra("genre"))) {                                                                  //ddd
+                    if (genres[y].equals(myGenre)) {                                                                  //ddd
                         if (want_year < yearint && yearint < want_year+ 9) {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
@@ -68,7 +107,7 @@ public class OutputActivity extends ActionBarActivity {
                 }
             }
 
-        }catch(Exception e){
+        }catch(Exception inputStreamException){
             System.out.println("InputStream Exception");
         }
     }
