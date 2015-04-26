@@ -26,7 +26,7 @@ public class OutputActivity extends ActionBarActivity {
         Button ReturnButton = (Button)findViewById(R.id.ReturnButton);
         ReturnButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent returnScreen =  new Intent(getApplicationContext(),MainActivity.class);
+                Intent returnScreen =  new Intent(getApplicationContext(),HomeScreen.class);
                 startActivity(returnScreen);
             }
         });

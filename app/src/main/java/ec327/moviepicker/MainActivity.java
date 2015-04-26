@@ -20,18 +20,23 @@ public class MainActivity extends ActionBarActivity {
     //Declare the objects for the main acitivity
     Button FindMovieBtn, HomeBtn;
     Spinner genreSpinner, decadeSpinner;
+    int presses = 0;
+    Intent i;
+    int maxPresses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        i = getIntent();
+        maxPresses=Integer.parseInt(i.getStringExtra("num"));
         configMovieBtn();
         configGenreSpinner();
         configDecadeSpinner();
     }
     //Configure the "find movie" button along with the text boxes
     public void configMovieBtn(){
+
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
 
         HomeBtn = (Button)findViewById(R.id.HomeButton);
@@ -43,12 +48,15 @@ public class MainActivity extends ActionBarActivity {
         });
         FindMovieBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+            presses += 1;
+            if(presses == maxPresses){
                 System.out.println("Button Clicked");
                 Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
                 outScreen.putExtra("genre", genreSpinner.getSelectedItem().toString());
                 outScreen.putExtra("year", decadeSpinner.getSelectedItem().toString());
                 startActivity(outScreen);
+
+            }
 
             }
         });
