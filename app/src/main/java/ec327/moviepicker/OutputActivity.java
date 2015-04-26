@@ -47,22 +47,25 @@ public class OutputActivity extends ActionBarActivity {
                 String[] parts = movieReader.readLine().split("\\\t");
                 String[] genres = parts[3].split(" ");
                 String year = parts[2];
-                String myyear = year.substring(1,4);
+                String myyear = year.substring(1,5);
                 int yearint = Integer.parseInt(myyear);
-                String decade = i.getStringExtra("year").substring(0,3);
+                String decade = i.getStringExtra("year").substring(0,4);
                 int want_year = Integer.parseInt(decade);
                 System.out.println(parts[parts.length-1]);
                 for(int y = 0; y < genres.length; y++) {
+
                     if (genres[y].equals(i.getStringExtra("genre"))) {
                         if (want_year < yearint && yearint < want_year+ 9) {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
+                            MovieOutput.setText(currentAns[1]);
+                            GenreOutput.setText(currentAns[0]);
+                            return;
                         }
                     }
                 }
             }
-            MovieOutput.setText(currentAns[1]);
-            GenreOutput.setText(currentAns[0]);
+
         }catch(Exception e){
             System.out.println("InputStream Exception");
         }

@@ -19,8 +19,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
     //Declare the objects for the main acitivity
     Button FindMovieBtn, HomeBtn;
-    Spinner genreSpinner;
-    EditText ActorInput, DirectorInput;
+    Spinner genreSpinner, decadeSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +28,11 @@ public class MainActivity extends ActionBarActivity {
 
         configMovieBtn();
         configGenreSpinner();
+        configDecadeSpinner();
     }
     //Configure the "find movie" button along with the text boxes
     public void configMovieBtn(){
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
-        ActorInput = (EditText)findViewById(R.id.ActorInput);
-        DirectorInput = (EditText)findViewById(R.id.DirectorInput);
 
         HomeBtn = (Button)findViewById(R.id.HomeButton);
         HomeBtn.setOnClickListener(new View.OnClickListener(){
@@ -49,8 +47,7 @@ public class MainActivity extends ActionBarActivity {
                 System.out.println("Button Clicked");
                 Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
                 outScreen.putExtra("genre", genreSpinner.getSelectedItem().toString());
-                outScreen.putExtra("actor", ActorInput.getText().toString());
-                outScreen.putExtra("director",DirectorInput.getText().toString());
+                outScreen.putExtra("year", decadeSpinner.getSelectedItem().toString());
                 startActivity(outScreen);
 
             }
@@ -71,6 +68,19 @@ public class MainActivity extends ActionBarActivity {
 
 
 
+    }
+
+    public void configDecadeSpinner(){
+        String[] decades = getResources().getStringArray(R.array.year_array);
+        List<String> list = new ArrayList<String>();
+        for(int i = 0; i < decades.length; i++){
+            list.add(i,decades[i]);
+        }
+        decadeSpinner = (Spinner)findViewById(R.id.DecadeSpinner);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        decadeSpinner.setAdapter(dataAdapter);
     }
 
 
