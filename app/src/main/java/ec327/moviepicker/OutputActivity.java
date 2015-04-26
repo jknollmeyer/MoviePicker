@@ -33,7 +33,6 @@ public class OutputActivity extends ActionBarActivity {
 
 
         final TextView MovieOutput = (TextView)findViewById(R.id.MovieOutput);
-        final TextView GenreOutput = (TextView)findViewById(R.id.GenreOutput);
 
 
         //Set up BufferReader using InputStream from text file at raw/testfile.txt
@@ -59,7 +58,6 @@ public class OutputActivity extends ActionBarActivity {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
                             MovieOutput.setText(currentAns[1]);
-                            GenreOutput.setText(currentAns[0]);
                             return;
                         }
                     }

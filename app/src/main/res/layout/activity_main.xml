@@ -22,10 +22,10 @@
         android:textColor="#181619"
         android:background="#E4DED0"
         android:id="@+id/btnFindMovie"
-        android:layout_below="@+id/DirectorInput"
+        android:textSize="14sp"
+        android:layout_above="@+id/HomeButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:textSize="14sp" />
+        android:layout_marginBottom="62dp" />
 
 
     <Spinner
@@ -45,17 +45,18 @@
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/HomeButton"
+        android:textSize="14sp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="14sp" />
+        android:layout_centerHorizontal="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/DecadeSpinner"
-        android:layout_below="@+id/GenreSpinner"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
 </RelativeLayout>
+
 
