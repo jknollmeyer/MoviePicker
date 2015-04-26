@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/home_layout"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#E32F21">
 
 
     <TextView android:text="@string/app_name" android:layout_width="wrap_content"
@@ -21,21 +22,26 @@
         android:singleLine="false"
         android:layout_marginTop="95dp"
         android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:textColor="#E4DED0"
         android:layout_marginBottom="20sp" />
 
     <Spinner
-        android:layout_width="151dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:id="@+id/PeopleSpinner"
         android:background="#E4DED0"
+        android:textColor="#181619"
         android:entries="@array/spinnerNums"
         android:focusable="false"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="120sp" />
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#E4DED0"
+        android:textColor="#181619"
         android:text="Go to selection"
         android:id="@+id/StartButton"
         android:layout_gravity="center_horizontal" />
