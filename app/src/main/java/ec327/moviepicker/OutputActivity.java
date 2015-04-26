@@ -49,11 +49,12 @@ public class OutputActivity extends ActionBarActivity {
                 String year = parts[2];
                 String myyear = year.substring(1,4);
                 int yearint = Integer.parseInt(myyear);
-                int want_year = Integer.parseInt(i.getStringExtra("year"));
+                String decade = i.getStringExtra("year").substring(0,3);
+                int want_year = Integer.parseInt(decade);
                 System.out.println(parts[parts.length-1]);
                 for(int y = 0; y < genres.length; y++) {
                     if (genres[y].equals(i.getStringExtra("genre"))) {
-                        if (want_year == yearint) {
+                        if (want_year < yearint && yearint < want_year+ 9) {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
                         }
