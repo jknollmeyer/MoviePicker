@@ -40,6 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:background="#E4DED0"
+        android:textColor="#181619"
         android:text="Go to selection"
         android:id="@+id/StartButton"
         android:layout_gravity="center_horizontal" />
