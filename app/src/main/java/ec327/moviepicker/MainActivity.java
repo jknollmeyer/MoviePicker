@@ -1,5 +1,9 @@
 package ec327.moviepicker;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
@@ -23,15 +27,15 @@ public class MainActivity extends ActionBarActivity {
     Button FindMovieBtn, HomeBtn;
     Spinner genreSpinner, decadeSpinner;
     int presses = 0;
-    Intent i;
+    Intent in;
     int maxPresses;
-
+    final Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        i = getIntent();
-        maxPresses=Integer.parseInt(i.getStringExtra("num"));
+        in = getIntent();
+        maxPresses=Integer.parseInt(in.getStringExtra("num"));
         configMovieBtn();
         configGenreSpinner();
         configDecadeSpinner();
@@ -41,31 +45,47 @@ public class MainActivity extends ActionBarActivity {
         myTextview.setTypeface(myTypeface);
     }
     //Configure the "find movie" button along with the text boxes
-    public void configMovieBtn(){
+    public void configMovieBtn() {
         final String[] userGenres = new String[maxPresses];
         final String[] userDecades = new String[maxPresses];
         FindMovieBtn = (Button) findViewById(R.id.btnFindMovie);
 
-        HomeBtn = (Button)findViewById(R.id.HomeButton);
-        HomeBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        HomeBtn = (Button) findViewById(R.id.HomeButton);
+        HomeBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent home = new Intent(getApplicationContext(), HomeScreen.class);
                 startActivity(home);
             }
         });
-        FindMovieBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-            userGenres[presses] = genreSpinner.getSelectedItem().toString();
-            userDecades[presses] = decadeSpinner.getSelectedItem().toString();
-            presses += 1;
-            if(presses == maxPresses){
-                System.out.println("Button Clicked");
-                Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
-                outScreen.putExtra("genre", userGenres);
-                outScreen.putExtra("year", userDecades);
-                startActivity(outScreen);
+        FindMovieBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                userGenres[presses] = genreSpinner.getSelectedItem().toString();
+                userDecades[presses] = decadeSpinner.getSelectedItem().toString();
+                presses += 1;
+                if (presses == maxPresses) {
+                    System.out.println("Button Clicked");
+                    Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);
+                    outScreen.putExtra("genre", userGenres);
+                    outScreen.putExtra("year", userDecades);
+                    startActivity(outScreen);
+                    //If theres only one more user left, change the button so it goes to the next user
+                } else if (presses == maxPresses - 1) {
+                    FindMovieBtn.setText("Find Movie");
+                }
+                genreSpinner.setSelection(0);
+                decadeSpinner.setSelection(0);
+                if (presses != maxPresses) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                    alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    alertDialogBuilder.setMessage("Please pass the phone to the next person");
+                    AlertDialog alert = alertDialogBuilder.create();
+                    alert.show();
 
-            }
+                }
 
             }
         });
@@ -90,10 +110,12 @@ public class MainActivity extends ActionBarActivity {
     public void configDecadeSpinner(){
         String[] decades = getResources().getStringArray(R.array.year_array);
         List<String> list = new ArrayList<String>();
+        //Loop to fill up the list
         for(int i = 0; i < decades.length; i++){
             list.add(i,decades[i]);
         }
         decadeSpinner = (Spinner)findViewById(R.id.DecadeSpinner);
+        //Use an array adapter to transfer the array to the spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
             android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
