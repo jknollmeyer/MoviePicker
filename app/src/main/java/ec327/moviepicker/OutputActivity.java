@@ -31,17 +31,17 @@ public class OutputActivity extends ActionBarActivity {
         setContentView(R.layout.output_activity);
         in = getIntent();
         //Initialize view objects
-        //ReturnButton = (Button)findViewById(R.id.ReturnButton);
+        ReturnButton = (Button)findViewById(R.id.button);
         MovieOutput = (TextView)findViewById(R.id.MovieOutput);
         myTextView = (TextView) findViewById(R.id.textView2);
         //LinkBox = (TextView) findViewById(R.id.LinkBox);
         //Set listener for "start over" button so it returns user to the HomeScreen
-       /* ReturnButton.setOnClickListener(new View.OnClickListener(){
+        ReturnButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent returnScreen =  new Intent(getApplicationContext(),HomeScreen.class);
                 startActivity(returnScreen);
             }
-        });*/
+        });
 
         //Set custom font for title text
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
@@ -163,7 +163,8 @@ public class OutputActivity extends ActionBarActivity {
         String title = goodmovies.get(gmidx);
         String mytitle = title;
 
-        String htmlpre;
+        String htmlpre = "http://www.rottentomatoes.com/m/";
+        /*
         if (mytitle.contains("\"")){                                                                   // handles if TV show or Movie
             mytitle.replace(" ","-");
             htmlpre = "http://www.rottentomatoes.com/tv/";
@@ -172,22 +173,30 @@ public class OutputActivity extends ActionBarActivity {
             mytitle = mytitle.replace(" ", "_");
             htmlpre = "http://www.rottentomatoes.com/m/";
         }
-
-
+            */
+        mytitle.replace("\"","");
+        mytitle.replace(".","");
+        mytitle.replace("'","");
+        mytitle = mytitle.replace(" ", "_");
         mytitle = mytitle.replace(",","");
         mytitle = mytitle.replace("&", "");
         mytitle = mytitle.replace("(","");
         mytitle = mytitle.replace(")","");
-        mytitle = mytitle.replace(":","");                             //creates html Link
-        htmlpre = "http://www.rottentomatoes.com/m/";
+        mytitle = mytitle.replace(":","");
+                                     //creates html Link
         StringBuilder htmlbuild = new StringBuilder();
 
         htmlbuild.append(htmlpre);
         htmlbuild.append(mytitle);
-
+        /*
+        if (htmlpre.contains("/tv/")){
+            htmlbuild.append("/s01");
+        }
+        */
         String html = htmlbuild.toString();
 
         MovieOutput.setText(goodmovies.get(gmidx));
+      //  MovieOutput.setText(html);
                                                   // sets movie output
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
