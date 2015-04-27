@@ -115,40 +115,49 @@ public class OutputActivity extends ActionBarActivity {
         myDecade = decade_array[maxDecade];
 
         ArrayList<String> goodmovies = new ArrayList<String>();
-        try{
 
-            String[] currentAns = {"",""};
-            for(int x=0; x<783; x++) {
-                String[] parts = movieReader.readLine().split("\\\t");
-                String[] genres = parts[3].split(" ");
-                String year = parts[2];
-                String myyear = year.substring(1,5);
-                int yearint = Integer.parseInt(myyear);                                                               //DDD
-                int want_year = Integer.parseInt(myDecade.substring(0,4));                                                                               //DDD
-                System.out.println(parts[parts.length-1]);
-                for(int y = 0; y < genres.length; y++) {
+        String[] currentAns = {"",""};
+        String[] parts = new String[4];
+        String line;
+        String[] genres;
+        for(int x=0; x<775; x++) {
 
-                    if (genres[y].equals(myGenre)) {                                                                  //ddd
-                        if (want_year < yearint && yearint < want_year+ 9) {
-                            currentAns[0] = genres[y];
-                            currentAns[1] = parts[1];
-                            goodmovies.add(currentAns[1]);
-                            return;
-                        }
+            try {
+                parts = movieReader.readLine().split("\\\t");
+            } catch (Exception e) {
+                System.out.println("IOstream Exception");
+            }
+            System.out.println(x);
+            try {
+                genres = parts[3].split(" ");
+            }catch(Exception e){
+                System.out.println("Parsing Error");
+                continue;
+            }
+            String year = parts[2];
+            String myyear = year.substring(1, 5);
+            int yearint = Integer.parseInt(myyear);                                                               //DDD
+            int want_year = Integer.parseInt(myDecade.substring(0, 4));                                                                               //DDD
+            System.out.println(parts[parts.length - 1]);
+            for (int y = 0; y < genres.length; y++) {
 
+                if (genres[y].equals(myGenre)) {                                                                  //ddd
+                    if (want_year < yearint && yearint < want_year + 9) {
+                        currentAns[0] = genres[y];
+                        currentAns[1] = parts[1];
+                        goodmovies.add(currentAns[1]);
                     }
-                }
 
+                }
             }
 
-            Random randomGenerator = new Random();
-            int gmidx = randomGenerator.nextInt(goodmovies.size());
-            MovieOutput.setText(goodmovies.get(gmidx));
 
 
-        }catch(Exception e){
-            System.out.println("IOstream Exception");
         }
+        Random randomGenerator = new Random();
+        int gmidx = randomGenerator.nextInt(goodmovies.size());
+        MovieOutput.setText(goodmovies.get(gmidx));
+
         //If the function reaches this point, there wasn't a movie matching the criteria
         //MovieOutput.setText("We weren't able to find you a movie :(");
     }
