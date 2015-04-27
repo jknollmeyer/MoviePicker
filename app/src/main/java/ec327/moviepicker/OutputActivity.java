@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class OutputActivity extends ActionBarActivity {
 
     Intent in;
-    TextView MovieOutput, myTextView;
+    TextView MovieOutput, myTextView, LinkBox;
     Button ReturnButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class OutputActivity extends ActionBarActivity {
         ReturnButton = (Button)findViewById(R.id.ReturnButton);
         MovieOutput = (TextView)findViewById(R.id.MovieOutput);
         myTextView = (TextView) findViewById(R.id.textView2);
-
+        LinkBox = (TextView) findViewById(R.id.LinkBox);
         //Set listener for "start over" button so it returns user to the HomeScreen
         ReturnButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -157,6 +157,26 @@ public class OutputActivity extends ActionBarActivity {
         Random randomGenerator = new Random();
         int gmidx = randomGenerator.nextInt(goodmovies.size());
         MovieOutput.setText(goodmovies.get(gmidx));
+
+        String title = goodmovies.get(gmidx);
+
+        String mytitle = title.replace(" ","_");
+        mytitle = mytitle.replace(",","");
+        mytitle = mytitle.replace("&", "");
+        mytitle = mytitle.replace("(","");
+        mytitle = mytitle.replace(")","");
+        mytitle = mytitle.replace(":","");                                                 //creates html Link
+        String htmlpre = "http://www.rottentomatoes.com/m/";
+        StringBuilder htmlbuild = new StringBuilder();
+
+        htmlbuild.append(htmlpre);
+        htmlbuild.append(mytitle);
+
+        String html = htmlbuild.toString();
+
+        MovieOutput.setText(goodmovies.get(gmidx));                                                 // sets movie output
+
+        LinkBox.setText(html);
 
         //If the function reaches this point, there wasn't a movie matching the criteria
         //MovieOutput.setText("We weren't able to find you a movie :(");

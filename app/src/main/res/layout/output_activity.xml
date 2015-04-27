@@ -27,7 +27,18 @@
         android:layout_marginBottom="20sp"
         android:layout_gravity="center_horizontal" />
     <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Link Box"
+        android:id="@+id/LinkBox"
+        android:textSize="20sp"
+        android:singleLine="false"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#E4DED0"
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
