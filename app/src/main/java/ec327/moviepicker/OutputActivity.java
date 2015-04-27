@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -178,6 +179,8 @@ public class OutputActivity extends ActionBarActivity {
         MovieOutput.setText(goodmovies.get(gmidx));
                                                   // sets movie output
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl(html);
 
         //LinkBox.setText(html);
