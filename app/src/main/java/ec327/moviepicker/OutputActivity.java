@@ -114,7 +114,7 @@ public class OutputActivity extends ActionBarActivity {
         myGenre = genre_array[maxGenre];
         myDecade = decade_array[maxDecade];
 
-        ArrayList<String> goodmovies = new ArrayList<>();
+        ArrayList<String> goodmovies = new ArrayList<String>();
         try{
 
             String[] currentAns = {"",""};
@@ -148,7 +148,7 @@ public class OutputActivity extends ActionBarActivity {
             System.out.println("IOstream Exception");
         }
         //If the function reaches this point, there wasn't a movie matching the criteria
-        MovieOutput.setText("We weren't able to find you a movie :(");
+        //MovieOutput.setText("We weren't able to find you a movie :(");
     }
 }
 /*
