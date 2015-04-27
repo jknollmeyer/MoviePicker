@@ -13,7 +13,8 @@ import android.widget.EditText;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
+import java.util.Random;
+import java.util.ArrayList;
 /**
  * Created by john on 4/13/15.
  */
@@ -87,6 +88,7 @@ public class OutputActivity extends ActionBarActivity {
         }
         myGenre = genre_array[maxGenre];
         myDecade = decade_array[maxDecade];
+        ArrayList<String> goodmovies = new ArrayList<>();
         try{
 
             String[] currentAns = {"",""};
@@ -104,11 +106,16 @@ public class OutputActivity extends ActionBarActivity {
                         if (want_year < yearint && yearint < want_year+ 9) {
                             currentAns[0] = genres[y];
                             currentAns[1] = parts[1];
-                            MovieOutput.setText(currentAns[1]);
+                            goodmovies.add(currentAns[1]);
                             return;
                         }
                     }
                 }
+                Random randomGenerator = new Random();
+                int gmidx = randomGenerator.nextInt(goodmovies.size());
+                MovieOutput.setText(goodmovies.get(gmidx));
+
+
             }
 
         }catch(Exception inputStreamException){
