@@ -138,12 +138,14 @@ public class OutputActivity extends ActionBarActivity {
 
                     }
                 }
-                Random randomGenerator = new Random();
-                int gmidx = randomGenerator.nextInt(goodmovies.size());
-                MovieOutput.setText(goodmovies.get(gmidx));
-
 
             }
+
+            Random randomGenerator = new Random();
+            int gmidx = randomGenerator.nextInt(goodmovies.size());
+            MovieOutput.setText(goodmovies.get(gmidx));
+
+
         }catch(Exception e){
             System.out.println("IOstream Exception");
         }
