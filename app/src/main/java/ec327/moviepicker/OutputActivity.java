@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
-
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -29,17 +30,17 @@ public class OutputActivity extends ActionBarActivity {
         setContentView(R.layout.output_activity);
         in = getIntent();
         //Initialize view objects
-        ReturnButton = (Button)findViewById(R.id.ReturnButton);
+        //ReturnButton = (Button)findViewById(R.id.ReturnButton);
         MovieOutput = (TextView)findViewById(R.id.MovieOutput);
         myTextView = (TextView) findViewById(R.id.textView2);
-        LinkBox = (TextView) findViewById(R.id.LinkBox);
+        //LinkBox = (TextView) findViewById(R.id.LinkBox);
         //Set listener for "start over" button so it returns user to the HomeScreen
-        ReturnButton.setOnClickListener(new View.OnClickListener(){
+       /* ReturnButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent returnScreen =  new Intent(getApplicationContext(),HomeScreen.class);
                 startActivity(returnScreen);
             }
-        });
+        });*/
 
         //Set custom font for title text
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
@@ -174,9 +175,12 @@ public class OutputActivity extends ActionBarActivity {
 
         String html = htmlbuild.toString();
 
-        MovieOutput.setText(goodmovies.get(gmidx));                                                 // sets movie output
+        MovieOutput.setText(goodmovies.get(gmidx));
+                                                  // sets movie output
+        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.loadUrl(html);
 
-        LinkBox.setText(html);
+        //LinkBox.setText(html);
 
         //If the function reaches this point, there wasn't a movie matching the criteria
         //MovieOutput.setText("We weren't able to find you a movie :(");

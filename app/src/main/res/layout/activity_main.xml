@@ -39,7 +39,7 @@
         android:layout_below="@+id/textView"
         android:textColor="#E4DED0"
         android:gravity="center|center_horizontal|clip_horizontal"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
 
@@ -59,7 +59,7 @@
         android:id="@+id/DecadeSpinner"
         android:textColor="#E4DED0"
         android:gravity="center|center_vertical|center_horizontal"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/GenreSpinner"
         android:layout_alignStart="@+id/GenreSpinner" />
