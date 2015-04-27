@@ -161,14 +161,25 @@ public class OutputActivity extends ActionBarActivity {
         MovieOutput.setText(goodmovies.get(gmidx));
 
         String title = goodmovies.get(gmidx);
+        String mytitle = title;
 
-        String mytitle = title.replace(" ","_");
+        String htmlpre;
+        if (mytitle.contains("\"")){                                                                   // handles if TV show or Movie
+            mytitle.replace(" ","-");
+            htmlpre = "http://www.rottentomatoes.com/tv/";
+        }
+        else {
+            mytitle = mytitle.replace(" ", "_");
+            htmlpre = "http://www.rottentomatoes.com/m/";
+        }
+
+
         mytitle = mytitle.replace(",","");
         mytitle = mytitle.replace("&", "");
         mytitle = mytitle.replace("(","");
         mytitle = mytitle.replace(")","");
-        mytitle = mytitle.replace(":","");                                                 //creates html Link
-        String htmlpre = "http://www.rottentomatoes.com/m/";
+        mytitle = mytitle.replace(":","");                             //creates html Link
+        htmlpre = "http://www.rottentomatoes.com/m/";
         StringBuilder htmlbuild = new StringBuilder();
 
         htmlbuild.append(htmlpre);

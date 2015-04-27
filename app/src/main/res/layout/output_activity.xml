@@ -11,8 +11,18 @@
         android:id="@+id/textView2"
         android:textColor="#E4DED0"
         android:gravity="center"
-        android:textSize="50sp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginTop="0dp"
+        android:textSize="45sp" />
+
+    <Button
+        android:layout_width="69dp"
+        android:layout_height="wrap_content"
+        android:text="Start Over"
+        android:id="@+id/button"
+        android:background="#E4DED0"
+        android:textColor="#181619"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="right" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,15 +43,5 @@
         android:layout_width="fill_parent"
         android:layout_height="443dp"
         />
-
-    <!--<Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Over"
-        android:id="@+id/button"
-        android:background="#E4DED0"
-        android:textColor="#181619"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center_horizontal" />-->
 
 </LinearLayout>
