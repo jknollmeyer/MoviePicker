@@ -183,6 +183,8 @@ public class OutputActivity extends ActionBarActivity {
         mytitle = mytitle.replace("(","");
         mytitle = mytitle.replace(")","");
         mytitle = mytitle.replace(":","");
+
+
                                      //creates html Link
         StringBuilder htmlbuild = new StringBuilder();
 
