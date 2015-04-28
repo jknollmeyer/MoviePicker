@@ -174,14 +174,14 @@ public class OutputActivity extends ActionBarActivity {
         String mytitle = goodmovies.get(gmidx);
 
         //pre-amble to every rotten tomatoes movie link needed
-        String htmlpre = "http://www.rottentomatoes.com/m/";
+        String htmlpre = "http://www.rottentomatoes.com/search/?search=";
 
         //formats mytitle for usage in generating a viable URL
         mytitle.replace("\"","");
         mytitle.replace(".","");
         mytitle.replace("-","");
         mytitle.replace("\'","");
-        mytitle = mytitle.replace(" ", "_");
+        mytitle = mytitle.replace(" ", "+");
         mytitle = mytitle.replace(",","");
         mytitle = mytitle.replace("&", "");
         mytitle = mytitle.replace("(","");
@@ -196,7 +196,7 @@ public class OutputActivity extends ActionBarActivity {
 
         //converts StringBuilder to String
         String html = htmlbuild.toString();
-
+  //      MovieOutput.setText(html);            // this is an debugging thing for html
         //Creates WebView Rotten Tomatoes for result movie
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
