@@ -12,16 +12,19 @@
         android:textColor="#E4DED0"
         android:gravity="center"
         android:layout_marginTop="0dp"
+        android:layout_alignLeft="@+id/button"
         android:textSize="45sp" />
 
     <Button
-        android:layout_width="69dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Over"
         android:id="@+id/button"
         android:background="#E4DED0"
         android:textColor="#181619"
+        android:textSize="10dp"
         android:layout_marginTop="0dp"
+        android:layout_alignRight="@+id/textView2"
         android:layout_gravity="right" />
 
     <TextView
