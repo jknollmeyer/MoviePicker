@@ -22,7 +22,6 @@
 
     <string-array name="genre_array">
         <item>Select a genre</item>
-        <item>Short</item>
         <item>Drama</item>
         <item>Comedy</item>
         <item>Documentary</item>
