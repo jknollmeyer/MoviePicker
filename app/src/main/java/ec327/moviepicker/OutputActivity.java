@@ -122,6 +122,7 @@ public class OutputActivity extends ActionBarActivity {
         String citationline;
         String[] genres;
         try {   // this moves the read point in testfile past the citation line and prints citation line to the console
+                // avoids citation line being read as a movie line
             citationline = movieReader.readLine();
             System.out.println(citationline);
         }
@@ -129,7 +130,7 @@ public class OutputActivity extends ActionBarActivity {
             System.out.println("IOstream Exception");
         }
 
-        for(int x=0; x<1921; x++) {
+        for(int x=0; x<1623; x++) {
 
             try {
                 parts = movieReader.readLine().split("\\\t");
