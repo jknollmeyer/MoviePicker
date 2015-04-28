@@ -37,11 +37,21 @@
         android:nestedScrollingEnabled="true"
         android:layout_marginTop="41dp"
         android:layout_below="@+id/textView"
-        android:textColor="#E4DED0"
         android:gravity="center|center_horizontal|clip_horizontal"
-        android:textSize="25sp"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DecadeSpinner"
+        android:prompt="@string/YearInput"
+        android:nestedScrollingEnabled="true"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/GenreSpinner"
+        android:layout_alignStart="@+id/GenreSpinner" />
+
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -53,16 +63,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/DecadeSpinner"
-        android:textColor="#E4DED0"
-        android:gravity="center|center_vertical|center_horizontal"
-        android:textSize="25sp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/GenreSpinner"
-        android:layout_alignStart="@+id/GenreSpinner" />
 
 </RelativeLayout>
 

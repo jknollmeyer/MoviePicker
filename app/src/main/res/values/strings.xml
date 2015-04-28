@@ -6,10 +6,10 @@
     <string name="findMovie">Next User</string>
 
     <string name="GenreInput">Choose a Genre</string>
-    <string name="ActorInput">Enter an Actor</string>
-    <string name="DirectorInput">Enter a Director</string>
+    <string name="YearInput">Choose a Time Period</string>
+    <!--<string name="ActorInput">Enter an Actor</string>
+    <string name="DirectorInput">Enter a Director</string>-->
 
-    <string name="year_prompt">Choose a Time Period</string>
     <string-array name="year_array">
         <item>1950s</item>
         <item>1960s</item>
@@ -20,7 +20,6 @@
         <item>2010s</item>
     </string-array>
 
-    <string name="genre_prompt">Choose a Genre</string>
     <string-array name="genre_array">
         <item>Select a genre</item>
         <item>Short</item>
