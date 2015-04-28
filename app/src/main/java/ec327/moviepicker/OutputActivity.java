@@ -123,7 +123,7 @@ public class OutputActivity extends ActionBarActivity {
         String line;
         String[] genres;
 
-        for(int x=0; x<1922; x++) {
+        for(int x=0; x<1921; x++) {
 
             try {
                 parts = movieReader.readLine().split("\\\t");
