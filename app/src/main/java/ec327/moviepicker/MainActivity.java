@@ -62,6 +62,9 @@ public class MainActivity extends ActionBarActivity {
                 userGenres[presses] = genreSpinner.getSelectedItem().toString();
                 userDecades[presses] = decadeSpinner.getSelectedItem().toString();
                 presses += 1;
+                if (maxPresses ==1){
+                    FindMovieBtn.setText("Find Movie"); //changes Next to Find Movie on button
+                }
                 if (presses == maxPresses) {
                     System.out.println("Button Clicked");
                     Intent outScreen = new Intent(getApplicationContext(), OutputActivity.class);

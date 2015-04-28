@@ -34,7 +34,6 @@ public class OutputActivity extends ActionBarActivity {
         ReturnButton = (Button)findViewById(R.id.button);
         MovieOutput = (TextView)findViewById(R.id.MovieOutput);
         myTextView = (TextView) findViewById(R.id.textView2);
-        //LinkBox = (TextView) findViewById(R.id.LinkBox);
         //Set listener for "start over" button so it returns user to the HomeScreen
         ReturnButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -157,27 +156,23 @@ public class OutputActivity extends ActionBarActivity {
 
 
         }
+        // chooses movie from goodmovies
         Random randomGenerator = new Random();
         int gmidx = randomGenerator.nextInt(goodmovies.size());
-        MovieOutput.setText(goodmovies.get(gmidx));
 
-        String title = goodmovies.get(gmidx);
-        String mytitle = title;
+        MovieOutput.setText(goodmovies.get(gmidx)); //Sets MovieOutput
 
+        //gets title of tonights movie for formatting
+        String mytitle = goodmovies.get(gmidx);
+
+        //pre-amble to every rotten tomatoes movie link needed
         String htmlpre = "http://www.rottentomatoes.com/m/";
-        /*
-        if (mytitle.contains("\"")){                                                                   // handles if TV show or Movie
-            mytitle.replace(" ","-");
-            htmlpre = "http://www.rottentomatoes.com/tv/";
-        }
-        else {
-            mytitle = mytitle.replace(" ", "_");
-            htmlpre = "http://www.rottentomatoes.com/m/";
-        }
-            */
+
+        //formats mytitle for usage in generating a viable URL
         mytitle.replace("\"","");
         mytitle.replace(".","");
-        mytitle.replace("'","");
+        mytitle.replace("-","");
+        mytitle.replace("\'","");
         mytitle = mytitle.replace(" ", "_");
         mytitle = mytitle.replace(",","");
         mytitle = mytitle.replace("&", "");
@@ -185,28 +180,20 @@ public class OutputActivity extends ActionBarActivity {
         mytitle = mytitle.replace(")","");
         mytitle = mytitle.replace(":","");
 
-
-                                     //creates html Link
         StringBuilder htmlbuild = new StringBuilder();
 
+        //concatenates htmlpre and mytitle to a full URL
         htmlbuild.append(htmlpre);
         htmlbuild.append(mytitle);
-        /*
-        if (htmlpre.contains("/tv/")){
-            htmlbuild.append("/s01");
-        }
-        */
+
+        //converts StringBuilder to String
         String html = htmlbuild.toString();
 
-        MovieOutput.setText(goodmovies.get(gmidx));
-      //  MovieOutput.setText(html);
-                                                  // sets movie output
+        //Creates WebView Rotten Tomatoes for result movie
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl(html);
-
-        //LinkBox.setText(html);
 
         //If the function reaches this point, there wasn't a movie matching the criteria
         //MovieOutput.setText("We weren't able to find you a movie :(");
