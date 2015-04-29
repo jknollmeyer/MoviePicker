@@ -21,12 +21,11 @@
         android:layout_height="wrap_content"
         android:text="Movie Output"
         android:id="@+id/MovieOutput"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:singleLine="false"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="20dp"
         android:gravity="end"
         android:textColor="#E4DED0"
-        android:layout_marginBottom="20sp"
         android:layout_gravity="center_horizontal" />
 
     <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
@@ -35,7 +34,7 @@
         android:id="@+id/webview"
         android:layout_width="fill_parent"
         android:layout_height="307dp"
-        android:layout_weight="1.05" />
+        android:layout_weight="0.82" />
 
     <Button
         android:layout_width="wrap_content"
@@ -45,8 +44,7 @@
         android:background="#E4DED0"
         android:textColor="#181619"
         android:textSize="12sp"
-        android:layout_marginTop="0dp"
-        android:layout_alignRight="@+id/textView2"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
