@@ -21,11 +21,8 @@
 
     <string-array name="genre_array">
         <item>Select a genre</item>
-        <item>Short</item>
         <item>Drama</item>
         <item>Comedy</item>
-        <item>Documentary</item>
-        <item>Adult</item>
         <item>Action</item>
         <item>Romance</item>
         <item>Thriller</item>

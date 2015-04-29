@@ -1,5 +1,8 @@
 package ec327.moviepicker;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -105,12 +108,24 @@ public class OutputActivity extends ActionBarActivity {
                 maxDecade = x;
             }
         }
-        //Loop to
+        //Loop to determine the index of the modal genre
         for(int x =0; x < genreCount.length; x++){
             if(genreCount[maxGenre] < genreCount[x]){
                 maxGenre = x;
             }
         }
+        /*
+        // sorts genres by times selected in genreCount
+        String temp;
+        for (int i=0; i < genreCount.length;i++){
+            temp = genre[i];
+            for (int j = 1; j < genreCount.length -1;j++)
+                if (genreCount[j] > genreCount[i]){
+                    genre[i] = genre[j];
+                    genre[j] = temp;
+                }
+        }
+           */
         //Set final string
         myGenre = genre_array[maxGenre];
         myDecade = decade_array[maxDecade];
@@ -148,7 +163,8 @@ public class OutputActivity extends ActionBarActivity {
             String myyear = year.substring(1, 5);
             int yearint = Integer.parseInt(myyear);                                                               //DDD
             int want_year = Integer.parseInt(myDecade.substring(0, 4));                                                                               //DDD
-            System.out.println(parts[parts.length - 1]);
+            //System.out.println(parts[parts.length - 1]);
+
             for (int y = 0; y < genres.length; y++) {
 
                 if (genres[y].equals(myGenre)) {                                                                  //ddd
@@ -157,19 +173,32 @@ public class OutputActivity extends ActionBarActivity {
                         currentAns[1] = parts[1];
                         goodmovies.add(currentAns[1]);
                     }
-
                 }
+
+
             }
-
-
-
         }
         // chooses movie from goodmovies
         Random randomGenerator = new Random();
         int gmidx = randomGenerator.nextInt(goodmovies.size());
+        if(! goodmovies.isEmpty()){
+            MovieOutput.setText(goodmovies.get(gmidx)); //Sets MovieOutput
+        }
+        else {
+            final Context context = this;
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                    Intent returnScreen =  new Intent(getApplicationContext(),HomeScreen.class);
+                    startActivity(returnScreen);
 
-        MovieOutput.setText(goodmovies.get(gmidx)); //Sets MovieOutput
-
+                }
+            });
+            alertDialogBuilder.setMessage("Your Search yielded no results");
+            AlertDialog alert = alertDialogBuilder.create();
+            alert.show();
+        }
         //gets title of tonights movie for formatting
         String mytitle = goodmovies.get(gmidx);
 
