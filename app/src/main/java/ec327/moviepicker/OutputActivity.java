@@ -145,6 +145,8 @@ public class OutputActivity extends ActionBarActivity {
             System.out.println("IOstream Exception");
         }
 
+        int count = 0;
+
         for(int x=0; x<1633; x++) {
 
             try {
@@ -164,7 +166,6 @@ public class OutputActivity extends ActionBarActivity {
             int yearint = Integer.parseInt(myyear);                                                               //DDD
             int want_year = Integer.parseInt(myDecade.substring(0, 4));                                                                               //DDD
             //System.out.println(parts[parts.length - 1]);
-
             for (int y = 0; y < genres.length; y++) {
 
                 if (genres[y].equals(myGenre)) {                                                                  //ddd
@@ -172,17 +173,50 @@ public class OutputActivity extends ActionBarActivity {
                         currentAns[0] = genres[y];
                         currentAns[1] = parts[1];
                         goodmovies.add(currentAns[1]);
+                        count++;
                     }
                 }
 
 
             }
         }
+
         // chooses movie from goodmovies
         Random randomGenerator = new Random();
         int gmidx = randomGenerator.nextInt(goodmovies.size());
-        if(! goodmovies.isEmpty()){
+        if(count > 0){
             MovieOutput.setText(goodmovies.get(gmidx)); //Sets MovieOutput
+            String mytitle = goodmovies.get(gmidx);
+
+            //pre-amble to every rotten tomatoes movie link needed
+            String htmlpre = "http://www.rottentomatoes.com/search/?search=";
+
+            //formats mytitle for usage in generating a viable URL
+            mytitle.replace("\"","");
+            mytitle.replace(".","");
+            mytitle.replace("-","");
+            mytitle.replace("\'","");
+            mytitle = mytitle.replace(" ", "+");
+            mytitle = mytitle.replace(",","");
+            mytitle = mytitle.replace("&", "");
+            mytitle = mytitle.replace("(","");
+            mytitle = mytitle.replace(")","");
+            mytitle = mytitle.replace(":","");
+
+            StringBuilder htmlbuild = new StringBuilder();
+
+            //concatenates htmlpre and mytitle to a full URL
+            htmlbuild.append(htmlpre);
+            htmlbuild.append(mytitle);
+
+            //converts StringBuilder to String
+            String html = htmlbuild.toString();
+            //      MovieOutput.setText(html);            // this is an debugging thing for html
+            //Creates WebView Rotten Tomatoes for result movie
+            WebView myWebView = (WebView) findViewById(R.id.webview);
+            myWebView.getSettings().setJavaScriptEnabled(true);
+            myWebView.setWebViewClient(new WebViewClient());
+            myWebView.loadUrl(html);
         }
         else {
             final Context context = this;
@@ -200,37 +234,7 @@ public class OutputActivity extends ActionBarActivity {
             alert.show();
         }
         //gets title of tonights movie for formatting
-        String mytitle = goodmovies.get(gmidx);
 
-        //pre-amble to every rotten tomatoes movie link needed
-        String htmlpre = "http://www.rottentomatoes.com/search/?search=";
-
-        //formats mytitle for usage in generating a viable URL
-        mytitle.replace("\"","");
-        mytitle.replace(".","");
-        mytitle.replace("-","");
-        mytitle.replace("\'","");
-        mytitle = mytitle.replace(" ", "+");
-        mytitle = mytitle.replace(",","");
-        mytitle = mytitle.replace("&", "");
-        mytitle = mytitle.replace("(","");
-        mytitle = mytitle.replace(")","");
-        mytitle = mytitle.replace(":","");
-
-        StringBuilder htmlbuild = new StringBuilder();
-
-        //concatenates htmlpre and mytitle to a full URL
-        htmlbuild.append(htmlpre);
-        htmlbuild.append(mytitle);
-
-        //converts StringBuilder to String
-        String html = htmlbuild.toString();
-  //      MovieOutput.setText(html);            // this is an debugging thing for html
-        //Creates WebView Rotten Tomatoes for result movie
-        WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl(html);
 
         //If the function reaches this point, there wasn't a movie matching the criteria
         //MovieOutput.setText("We weren't able to find you a movie :(");
