@@ -44,7 +44,8 @@
         android:layout_marginTop="200dp"
         android:background="#E4DED0"
         android:textColor="#181619"
-        android:text="Next"
+        android:textSize="12sp"
+        android:text="@string/findMovie"
         android:id="@+id/StartButton"
         android:layout_gravity="center_horizontal" />
 

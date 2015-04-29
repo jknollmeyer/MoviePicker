@@ -23,7 +23,7 @@
         android:textColor="#181619"
         android:background="#E4DED0"
         android:id="@+id/btnFindMovie"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_above="@+id/HomeButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="62dp" />
@@ -36,17 +36,20 @@
         android:prompt="@string/GenreInput"
         android:nestedScrollingEnabled="true"
         android:layout_marginTop="41dp"
+        android:textColor="#181619"
+        android:textSize="50sp"
         android:layout_below="@+id/textView"
         android:gravity="center|center_horizontal|clip_horizontal"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
 
     <Spinner
+        android:prompt="@string/YearInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/DecadeSpinner"
-        android:prompt="@string/YearInput"
         android:nestedScrollingEnabled="true"
+        android:textColor="#181619"
         android:gravity="center|center_vertical|center_horizontal"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/GenreSpinner"
@@ -55,13 +58,18 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/HomeButton"
-        android:textSize="14sp"
+        android:textSize="10sp"
+        android:background="#E4DED0"
+        android:textColor="#181619"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/btnFindMovie"
+        android:layout_alignEnd="@+id/btnFindMovie"
+        android:layout_alignLeft="@+id/btnFindMovie"
+        android:layout_alignStart="@+id/btnFindMovie" />
 
 
 </RelativeLayout>

@@ -4,28 +4,17 @@
     android:layout_height="match_parent"
     android:id="@+id/output_activity"
     android:orientation="vertical"
-    android:background="#E32F21">
+    android:background="#E32F21"
+    android:weightSum="1">
 
     <TextView android:text="@string/app_name" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textColor="#E4DED0"
         android:gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="0dp"
-        android:layout_alignLeft="@+id/button"
         android:textSize="45sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Over"
-        android:id="@+id/button"
-        android:background="#E4DED0"
-        android:textColor="#181619"
-        android:textSize="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_gravity="right" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,12 +28,25 @@
         android:textColor="#E4DED0"
         android:layout_marginBottom="20sp"
         android:layout_gravity="center_horizontal" />
+
     <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
 
     <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webview"
         android:layout_width="fill_parent"
-        android:layout_height="443dp"
-        />
+        android:layout_height="307dp"
+        android:layout_weight="1.05" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Over"
+        android:id="@+id/button"
+        android:background="#E4DED0"
+        android:textColor="#181619"
+        android:textSize="12sp"
+        android:layout_marginTop="0dp"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

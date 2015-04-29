@@ -4,9 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="findMovie">Next</string>
-
-    <string name="GenreInput">Choose a Genre</string>
     <string name="YearInput">Choose a Time Period</string>
+    <string name="GenreInput">Choose a Genre</string>
     <!--<string name="ActorInput">Enter an Actor</string>
     <string name="DirectorInput">Enter a Director</string>-->
 
@@ -22,9 +21,11 @@
 
     <string-array name="genre_array">
         <item>Select a genre</item>
+        <item>Short</item>
         <item>Drama</item>
         <item>Comedy</item>
         <item>Documentary</item>
+        <item>Adult</item>
         <item>Action</item>
         <item>Romance</item>
         <item>Thriller</item>
