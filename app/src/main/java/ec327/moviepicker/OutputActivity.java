@@ -130,7 +130,7 @@ public class OutputActivity extends ActionBarActivity {
             System.out.println("IOstream Exception");
         }
 
-        for(int x=0; x<1623; x++) {
+        for(int x=0; x<1633; x++) {
 
             try {
                 parts = movieReader.readLine().split("\\\t");
