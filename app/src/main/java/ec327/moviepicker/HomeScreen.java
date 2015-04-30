@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 public class HomeScreen extends ActionBarActivity {
 
+    //declarations
     Button startBtn;
     Spinner numSpinner;
     @Override
@@ -30,6 +31,7 @@ public class HomeScreen extends ActionBarActivity {
 
         startBtn = (Button) findViewById(R.id.StartButton);
         numSpinner = (Spinner) findViewById(R.id.PeopleSpinner);
+        //get the number of users from the spinner on button click
         startBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -40,6 +42,8 @@ public class HomeScreen extends ActionBarActivity {
 
 
         });
+
+        //Here we get the font for the MoviePicker logo
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
         TextView myTextview = (TextView) findViewById(R.id.textview1);
         myTextview.setTypeface(myTypeface);
@@ -54,9 +58,7 @@ public class HomeScreen extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

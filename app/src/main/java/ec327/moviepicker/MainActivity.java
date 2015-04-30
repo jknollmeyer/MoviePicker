@@ -40,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
         configGenreSpinner();
         configDecadeSpinner();
 
+        //set the logo in the font from assets
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Lex Font.ttf");
         TextView myTextview = (TextView) findViewById(R.id.textView);
         myTextview.setTypeface(myTypeface);
